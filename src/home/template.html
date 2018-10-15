@@ -7,6 +7,12 @@
 
 <img src="<%= require('../images/big.jpg') %>" />
 
-<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-<script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
-<% } %>
+<% for (var chunk in htmlWebpackPlugin.files.chunks) { 
+     if(chunk.indexOf(htmlWebpackPlugin.options.sName) !== -1)
+     {
+    
+    
+    %>
+    <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+
+<% } } %>

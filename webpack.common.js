@@ -17,20 +17,23 @@
          new HtmlWebpackPlugin({
              template: './src/home/template.html',
              inject: false,
-             chunks: ['home'],
-             filename: path.resolve(__dirname, 'src/home/index.html')
+             //chunks: ['home', 'default~about~contact~home'],
+             filename: path.resolve(__dirname, 'src/home/index.html'),
+             sName : 'home'
          }),
          new HtmlWebpackPlugin({
              template: './src/about/template.html',
              inject: false,
-             chunks: ['about'],
-             filename: path.resolve(__dirname, 'src/about/index.html')
+             //chunks: ['about'],
+             filename: path.resolve(__dirname, 'src/about/index.html'),
+             sName : 'about'
          }),
          new HtmlWebpackPlugin({
              template: './src/contact/template.html',
              inject: false,
-             chunks: ['contact'],
-             filename: path.resolve(__dirname, 'src/contact/index.html')
+             //chunks: ['contact'],
+             filename: path.resolve(__dirname, 'src/contact/index.html'),
+             sName : 'contact'
          }),
          // new HtmlWebpackPlugin({
          //     template: './src/service/template.html',
