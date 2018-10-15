@@ -6,8 +6,8 @@
  module.exports = {
      entry: {
          home: './src/home/home.ts',
-         //  about: './src/about/about.ts',
-         //  contact: './src/contact/contact.ts',
+         about: './src/about/about.ts',
+         contact: './src/contact/contact.ts',
          //  service: './src/service/service.ts',
          //  app: './src/index.ts',
          //  polyfills: './src/polyfills.ts'
@@ -20,18 +20,18 @@
              chunks: ['home'],
              filename: path.resolve(__dirname, 'src/home/index.html')
          }),
-         //  new HtmlWebpackPlugin({
-         //      template: './src/about/template.html',
-         //      inject: false,
-         //      chunks: ['about'],
-         //      filename: path.resolve(__dirname, 'src/about/index.html')
-         //  }),
-         //  new HtmlWebpackPlugin({
-         //     template: './src/contact/template.html',
-         //     inject: false,
-         //     chunks: ['contact'],
-         //     filename: path.resolve(__dirname, 'src/contact/index.html')
-         // }),
+         new HtmlWebpackPlugin({
+             template: './src/about/template.html',
+             inject: false,
+             chunks: ['about'],
+             filename: path.resolve(__dirname, 'src/about/index.html')
+         }),
+         new HtmlWebpackPlugin({
+             template: './src/contact/template.html',
+             inject: false,
+             chunks: ['contact'],
+             filename: path.resolve(__dirname, 'src/contact/index.html')
+         }),
          // new HtmlWebpackPlugin({
          //     template: './src/service/template.html',
          //     inject: false,
@@ -52,10 +52,10 @@
      optimization: {
          splitChunks: {
              chunks: "all",
-             minSize: 30000,
+             minSize: 1,
              minChunks: 1,
              maxAsyncRequests: 5,
-             maxInitialRequests: 3,
+             maxInitialRequests: 2,
              automaticNameDelimiter: '~',
              name: true,
              cacheGroups: {

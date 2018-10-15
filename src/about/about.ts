@@ -1,7 +1,4 @@
 
 
-import { $ } from '../shared/shared';
- //
-$("#home").html(`
-    <div>home page</div>
-`);
+import { c } from '../shared/c';
+console.log(c);
