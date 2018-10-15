@@ -1,4 +1,4 @@
 
-
-import { c } from '../shared/c';
-console.log(c);
+ import * as $ from 'jquery';
+ console.log($);
+console.log('dada');

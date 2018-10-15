@@ -2,6 +2,7 @@
  const HtmlWebpackPlugin = require('html-webpack-plugin'); // create index.html
  const CleanWebpackPlugin = require('clean-webpack-plugin');
  const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // split out css 
+ const InlineSourcePlugin = require('html-webpack-inline-source-plugin');
 
  module.exports = {
      entry: {
@@ -17,24 +18,25 @@
          new HtmlWebpackPlugin({
              template: './src/home/template.html',
              inject: false,
-             //chunks: ['home', 'default~about~contact~home'],
              filename: path.resolve(__dirname, 'src/home/index.html'),
-             sName : 'home'
+             inlineSource: 'runtime~.+\\.js',
+             sName: 'home'
          }),
          new HtmlWebpackPlugin({
              template: './src/about/template.html',
              inject: false,
-             //chunks: ['about'],
              filename: path.resolve(__dirname, 'src/about/index.html'),
-             sName : 'about'
+             inlineSource: 'runtime~.+\\.js',
+             sName: 'about'
          }),
          new HtmlWebpackPlugin({
              template: './src/contact/template.html',
              inject: false,
-             //chunks: ['contact'],
              filename: path.resolve(__dirname, 'src/contact/index.html'),
-             sName : 'contact'
+             inlineSource: 'runtime~.+\\.js',
+             sName: 'contact'
          }),
+         new InlineSourcePlugin(),
          // new HtmlWebpackPlugin({
          //     template: './src/service/template.html',
          //     inject: false,
@@ -48,17 +50,18 @@
      ],
      output: {
          publicPath: "/",
-         filename: '[name].[hash].bundle.js',
+         filename: '[name].[chunkhash].bundle.js',
          path: path.resolve(__dirname, 'dist')
      },
      // vendor
      optimization: {
+         runtimeChunk: true,
          splitChunks: {
              chunks: "all",
              minSize: 1,
              minChunks: 1,
              maxAsyncRequests: 5,
-             maxInitialRequests: 2,
+             maxInitialRequests: 3,
              automaticNameDelimiter: '~',
              name: true,
              cacheGroups: {
