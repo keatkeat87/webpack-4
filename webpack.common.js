@@ -63,10 +63,6 @@
                      test: /[\\/]node_modules[\\/]/,
                      priority: 1
                  },
-                 shared: {
-                     test: /[\\/]shared[\\/]/,
-                     priority: -10
-                 },
                  default: {
                      minChunks: 2,
                      priority: -20,
