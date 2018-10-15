@@ -1,8 +1,10 @@
-<% for (var css in htmlWebpackPlugin.files.css) { %>
-<link href="<%=htmlWebpackPlugin.files.css[css] %>"
-    rel=stylesheet>
-<% } %>
-<div id=home></div> <img src=/e7f671a4f3c2944c5e275f8e167aa417.jpg />
-<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-<script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
-<% } %>
+
+
+<div id="home"></div>
+<!-- <img src="../images/big.jpg" /> -->
+
+<img src="/e7f671a4f3c2944c5e275f8e167aa417.jpg" />
+
+
+<script src="/home.5b7b98357a02ec8a144f.bundle.js"></script>
+
