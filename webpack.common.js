@@ -6,9 +6,9 @@
  module.exports = {
      entry: {
          home: './src/home/home.ts',
-         about: './src/about/about.ts',
-         contact: './src/contact/contact.ts',
-         service: './src/service/service.ts',
+        //  about: './src/about/about.ts',
+        //  contact: './src/contact/contact.ts',
+        //  service: './src/service/service.ts',
          //  app: './src/index.ts',
          //  polyfills: './src/polyfills.ts'
      },
@@ -20,24 +20,24 @@
              chunks: ['home'],
              filename: path.resolve(__dirname, 'src/home/index.html')
          }),
-         new HtmlWebpackPlugin({
-             template: './src/about/template.html',
-             inject: false,
-             chunks: ['about'],
-             filename: path.resolve(__dirname, 'src/about/index.html')
-         }),
-         new HtmlWebpackPlugin({
-            template: './src/contact/template.html',
-            inject: false,
-            chunks: ['contact'],
-            filename: path.resolve(__dirname, 'src/contact/index.html')
-        }),
-        new HtmlWebpackPlugin({
-            template: './src/service/template.html',
-            inject: false,
-            chunks: ['service'],
-            filename: path.resolve(__dirname, 'src/service/index.html')
-        }),
+        //  new HtmlWebpackPlugin({
+        //      template: './src/about/template.html',
+        //      inject: false,
+        //      chunks: ['about'],
+        //      filename: path.resolve(__dirname, 'src/about/index.html')
+        //  }),
+        //  new HtmlWebpackPlugin({
+        //     template: './src/contact/template.html',
+        //     inject: false,
+        //     chunks: ['contact'],
+        //     filename: path.resolve(__dirname, 'src/contact/index.html')
+        // }),
+        // new HtmlWebpackPlugin({
+        //     template: './src/service/template.html',
+        //     inject: false,
+        //     chunks: ['service'],
+        //     filename: path.resolve(__dirname, 'src/service/index.html')
+        // }),
          new MiniCssExtractPlugin({
              filename: "[name][contenthash].css",
              chunkFilename: "[id].css"
@@ -79,7 +79,13 @@
          extensions: ['.ts', '.js']
      },
      module: {
-         rules: [{
+         rules: [
+             {
+                test: /\.html$/,
+                use : ['html-loader']
+                // use: ['file-loader?name=[name].[ext]', 'extract-loader', 'html-loader'],
+             },
+             {
                  test: /\.ts?$/,
                  use: 'ts-loader',
                  exclude: /node_modules/
