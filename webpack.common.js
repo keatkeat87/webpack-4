@@ -52,7 +52,7 @@
      optimization: {
          splitChunks: {
              chunks: "all",
-             minSize: 1,
+             minSize: 30000,
              minChunks: 1,
              maxAsyncRequests: 5,
              maxInitialRequests: 3,
@@ -60,7 +60,7 @@
              name: true,
              cacheGroups: {
                  vendors: {
-                     test: /[\\/]ww[\\/]/,
+                     test: /[\\/]node_modules[\\/]/,
                      priority: 1
                  },
                  shared: {
