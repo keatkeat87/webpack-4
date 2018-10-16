@@ -15,7 +15,10 @@ import 'owl.carousel/dist/owl.carousel';
 // import * as Isotope from 'isotope-layout'; //module, type 
 import 'isotope-layout'; 
 declare let Isotope : any;
-// import 'datatables.net.dt';
+import 'datatables.net.dt';
+import 'datatables.net-responsive-dt';
+import 'datatables.net-scroller';
+import 'datatables.net-select';
 
 $('[data-fancybox]').fancybox();
 
