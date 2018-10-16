@@ -12,7 +12,31 @@
 
 <div id="home"></div>
 
-<img src="<%= require('../images/big.jpg') %>" />
+<div id="masonry">
+    <div class="masonry-item">
+        <img src="<%= require('../images/big.jpg') %>" width="200"/>
+    </div>
+    <div class="masonry-item">
+        <img src="<%= require('../images/big.jpg') %>" width="200"/>
+    </div>
+</div>
+
+
+<a href="<%= require('../images/big.jpg') %>" data-fancybox>
+    <img src="<%= require('../images/big.jpg') %>" />
+
+</a>
+
+<div id="owl-carousel" class="owl-carousel owl-theme">
+    <div class="wrap" data-dot="<%= require('../images/big.jpg') %>">
+        <img src="<%= require('../images/big.jpg') %>"
+                alt="hydro o-ring and oil seal">
+    </div>
+    <div class="wrap" data-dot="<%= require('../images/big.jpg') %>">
+        <img src="<%= require('../images/big.jpg') %>"
+                alt="hydro o-ring and oil seal">
+    </div>
+</div>
 
 
 <!--[if le IE 11]> 
