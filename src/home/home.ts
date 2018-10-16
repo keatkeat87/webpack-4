@@ -12,8 +12,10 @@ import { b } from '../shared/b';
 import * as $ from 'jquery';
 import '@fancyapps/fancybox';
 import 'owl.carousel/dist/owl.carousel';
-import * as Isotope from 'isotope-layout';
-import 'datatables.net.dt';
+// import * as Isotope from 'isotope-layout';
+import 'isotope-layout';
+declare let Isotope : any;
+// import 'datatables.net.dt';
 
 $('[data-fancybox]').fancybox();
 
@@ -34,5 +36,5 @@ new Isotope('#masonry', {
     layoutMode: 'masonry'
 });
 
-$('#table').DataTable();
+// $('#table').DataTable();
 
