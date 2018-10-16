@@ -11,7 +11,7 @@ console.log(b + 'ta');
 //  import '@fancyapps/fancybox';
 
 // console.log($.fancybox);
- 
+
 // $("#home").html(`
 //     <div>home page</div>
 // `);

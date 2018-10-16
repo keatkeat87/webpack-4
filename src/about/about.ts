@@ -1,4 +1,4 @@
 
- import * as $ from 'jquery';
- console.log($);
+import * as $ from 'jquery';
+console.log($);
 console.log('dada');

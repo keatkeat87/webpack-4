@@ -2,7 +2,7 @@
  const HtmlWebpackPlugin = require('html-webpack-plugin'); // create index.html
  const CleanWebpackPlugin = require('clean-webpack-plugin');
  const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // split out css 
-//  const InlineSourcePlugin = require('html-webpack-inline-source-plugin');
+ //  const InlineSourcePlugin = require('html-webpack-inline-source-plugin');
 
  module.exports = {
      entry: {
@@ -54,7 +54,9 @@
      optimization: {
          runtimeChunk: true,
          splitChunks: {
-             chunks: "all",
+             chunks(chunk) {
+                 return chunk.name !== 'polyfills' && chunk.name !== 'landingPage';
+             },
              minSize: 1,
              minChunks: 1,
              maxAsyncRequests: 5,
@@ -64,7 +66,7 @@
              cacheGroups: {
                  vendors: {
                      test: /[\\/]node_modules[\\/]/,
-                     priority: 1
+                     priority: -10
                  },
                  default: {
                      minChunks: 2,
