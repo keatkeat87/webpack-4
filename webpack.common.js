@@ -2,7 +2,7 @@
  const HtmlWebpackPlugin = require('html-webpack-plugin'); // create index.html
  const CleanWebpackPlugin = require('clean-webpack-plugin');
  const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // split out css 
- const InlineSourcePlugin = require('html-webpack-inline-source-plugin');
+//  const InlineSourcePlugin = require('html-webpack-inline-source-plugin');
 
  module.exports = {
      entry: {
@@ -19,24 +19,21 @@
              template: './src/home/template.html',
              inject: false,
              filename: path.resolve(__dirname, 'src/home/index.html'),
-             inlineSource: 'runtime~.+\\.js',
              sName: 'home'
          }),
          new HtmlWebpackPlugin({
              template: './src/about/template.html',
              inject: false,
              filename: path.resolve(__dirname, 'src/about/index.html'),
-             inlineSource: 'runtime~.+\\.js',
              sName: 'about'
          }),
          new HtmlWebpackPlugin({
              template: './src/contact/template.html',
              inject: false,
              filename: path.resolve(__dirname, 'src/contact/index.html'),
-             inlineSource: 'runtime~.+\\.js',
              sName: 'contact'
          }),
-         new InlineSourcePlugin(),
+         // new InlineSourcePlugin(),
          // new HtmlWebpackPlugin({
          //     template: './src/service/template.html',
          //     inject: false,
