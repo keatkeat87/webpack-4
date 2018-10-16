@@ -11,7 +11,7 @@
          contact: './src/contact/contact.ts',
          //  service: './src/service/service.ts',
          //  app: './src/index.ts',
-         //  polyfills: './src/polyfills.ts'
+         polyfills: './src/polyfills.ts'
      },
      plugins: [
          new CleanWebpackPlugin(['dist']),
@@ -42,7 +42,7 @@
          // }),
          new MiniCssExtractPlugin({
              filename: "[name][contenthash].css",
-             chunkFilename: "[id].css"
+             chunkFilename: "[name][contenthash].css"
          })
      ],
      output: {
@@ -58,7 +58,7 @@
              minSize: 1,
              minChunks: 1,
              maxAsyncRequests: 5,
-             maxInitialRequests: 3,
+             maxInitialRequests: 2,
              automaticNameDelimiter: '~',
              name: true,
              cacheGroups: {
