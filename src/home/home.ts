@@ -2,7 +2,8 @@
 import '../shared/a.scss';
 import '../shared/b.scss';
 import '@fancyapps/fancybox/dist/jquery.fancybox.min.css';
-import 'owl.carousel/dist/assets/owl.carousel.min.css'
+import 'owl.carousel/dist/assets/owl.carousel.min.css';
+import 'datatables.net-dt/css/jquery.dataTables.min.css';
 import { a } from '../shared/a';
 import { b } from '../shared/b';
 // console.log(a + 'da');
@@ -11,7 +12,8 @@ import { b } from '../shared/b';
 import * as $ from 'jquery';
 import '@fancyapps/fancybox';
 import 'owl.carousel/dist/owl.carousel';
-import * as isotope from 'isotope-layout';
+import * as Isotope from 'isotope-layout';
+import 'datatables.net.dt';
 
 $('[data-fancybox]').fancybox();
 
@@ -27,13 +29,10 @@ $('#owl-carousel').owlCarousel({
     animateOut: 'fadeOut'
 });
 
-var iso = new isotope({
+new Isotope('#masonry', {
     itemSelector: '.masonry-item',
-    layoutMode: 'masonry',
-})
-$('#masonry').isotope({
-    
-    // masonry: {
-    //     columnWidth: 200
-    //   }
+    layoutMode: 'masonry'
 });
+
+$('#table').DataTable();
+
