@@ -12,7 +12,9 @@ import { b } from '../shared/b';
 import * as $ from 'jquery';
 import '@fancyapps/fancybox';
 import 'owl.carousel/dist/owl.carousel';
-import * as Isotope from 'isotope-layout';
+// import * as Isotope from 'isotope-layout'; //module, type 
+import 'isotope-layout'; 
+declare let Isotope : any;
 // import 'datatables.net.dt';
 
 $('[data-fancybox]').fancybox();
@@ -28,6 +30,7 @@ $('#owl-carousel').owlCarousel({
     autoplayHoverPause: true,
     animateOut: 'fadeOut'
 });
+ 
 
 new Isotope('#masonry', {
     itemSelector: '.masonry-item',

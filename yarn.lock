@@ -32,10 +32,6 @@
   dependencies:
     "@types/jquery" "*"
 
-"@types/isotope-layout@^3.0.4":
-  version "3.0.4"
-  resolved "http://registry.npmjs.org/@types/isotope-layout/-/isotope-layout-3.0.4.tgz#a3db64cd701d24dcbbdf8e4d65e6ac08a1dd5cd1"
-
 "@types/jquery@*", "@types/jquery@^3.3.17":
   version "3.3.17"
   resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.3.17.tgz#0903a65889625facd424f19c6c0a03fddf00b4c6"
