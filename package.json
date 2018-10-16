@@ -19,6 +19,8 @@
   "license": "ISC",
   "devDependencies": {
     "@types/datatables.net": "^1.10.13",
+    "@types/datatables.net-scroller": "^1.4.0",
+    "@types/datatables.net-select": "^1.2.4",
     "@types/fancybox": "^2.1.32",
     "@types/isotope-layout": "^3.0.4",
     "@types/jquery": "^3.3.17",

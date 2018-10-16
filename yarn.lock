@@ -7,7 +7,23 @@
   resolved "https://registry.yarnpkg.com/@fancyapps/fancybox/-/fancybox-3.5.2.tgz#d6ff4bf3bc99dd69c53bcee9397d8cf698462fe3"
   integrity sha512-8xZcTc8wNq53ihacnomPtw5uG/KccgYAa+KNl/3PLwlz1Aldl+LzYSTQA0GW39JMJkfE6aiTQrSxte36uxNJqQ==
 
-"@types/datatables.net@^1.10.13":
+"@types/datatables.net-scroller@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@types/datatables.net-scroller/-/datatables.net-scroller-1.4.0.tgz#6536551a9fc5329f89afa0c276c6df88cc76f74c"
+  integrity sha512-EP7tn8wM6FnuDXc//IvkyiX9PK10PMT00QCBIUxklB/T+z3uoF7VIBq6u9q4WX/9aH/KY4FFjUt8PIfveOp6+g==
+  dependencies:
+    "@types/datatables.net" "*"
+    "@types/jquery" "*"
+
+"@types/datatables.net-select@^1.2.4":
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/@types/datatables.net-select/-/datatables.net-select-1.2.4.tgz#6693f0238b1efb13cd593f15b92181075f9c00ce"
+  integrity sha512-eOKwjLgQc4CHOgrv2QCIs5Il8/hPMETtI3MqlzXlK5jVNOKQA9e0o7hk+pgilk/oGOv6mbVRF47XeSu40zwxQA==
+  dependencies:
+    "@types/datatables.net" "*"
+    "@types/jquery" "*"
+
+"@types/datatables.net@*", "@types/datatables.net@^1.10.13":
   version "1.10.13"
   resolved "https://registry.yarnpkg.com/@types/datatables.net/-/datatables.net-1.10.13.tgz#43458dc4ac31af3393b70f3589ba240b7aa3269e"
   integrity sha512-0HFciKksfrrS3KYzqot2EZkZd2pADKN6ek92BqUZ46b1HdwPp8TV3s8mSpqRVGQofPr/iZBW0aS6cKG6oaa0MQ==
