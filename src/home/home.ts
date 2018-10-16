@@ -11,7 +11,9 @@ import { b } from '../shared/b';
 import * as $ from 'jquery';
 import '@fancyapps/fancybox';
 import 'owl.carousel/dist/owl.carousel';
-import 'isotope-layout';
+import * as Isotope from 'isotope-layout';
+
+
 
 $('#owl-carousel').owlCarousel({
     items: 1,
@@ -25,7 +27,12 @@ $('#owl-carousel').owlCarousel({
     animateOut: 'fadeOut'
 });
 
-$('#masonry').isotope({
+// $('#masonry').isotope({
+//     itemSelector: '.masonry-item',
+//     layoutMode: 'masonry'
+// });
+
+ let iso = new Isotope('#masonry', {
     itemSelector: '.masonry-item',
     layoutMode: 'masonry'
 });

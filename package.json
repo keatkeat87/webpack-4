@@ -5,7 +5,10 @@
     "./node_modules/isotope-layout/dist/isotope.pkgd.js",
     "./node_modules/isotope-layout/dist/isotope.pkgd.min.js",
     "./node_modules/isotope-layout/js/isotope.js",
-    "*.scss"
+    "isotope-layout",
+    "*.isotope-layout.js",
+    "*.scss",
+    "*.css"
   ],
   "version": "1.0.0",
   "description": "",
