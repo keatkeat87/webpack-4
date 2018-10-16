@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.2",
+    "@types/isotope-layout": "^3.0.4",
     "core-js": "^2.5.7",
     "datatables.net-dt": "^1.10.19",
     "datatables.net-scroller": "^1.5.1",

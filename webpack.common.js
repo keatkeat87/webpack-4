@@ -47,8 +47,7 @@ module.exports = {
         }),
         new webpack.ProvidePlugin({
            jQuery: 'jquery',
-           'window.jQuery': 'jquery',
-           'Isotope' : 'isotope-layout'
+           'window.jQuery': 'jquery'            
         })
     ],
     output: {
