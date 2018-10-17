@@ -20,37 +20,61 @@ import 'datatables.net-scroller';
 import 'datatables.net-select';
 import { ajaxForm } from '../modules/ajaxForm';
 
-$('[data-fancybox]').fancybox();
+ajaxForm({
+    elementId: 'enquiryForm',
+    beforeSend: () => {
+        console.log('beforeSend');
+    },
+    error: (errorText) => {
+        console.log(errorText);
+    },
+    processing: () => {
 
-$('#owl-carousel').owlCarousel({
-    items: 1,
-    loop: true,
-    center: true,
-    dots: true,
-    dotsData: true,
-    autoplay: true,
-    autoplayTimeout: 4000,
-    autoplayHoverPause: true,
-    animateOut: 'fadeOut'
-});
+    },
+    success: () => {
 
-new Isotope('#masonry', {
-    itemSelector: '.masonry-item',
-    layoutMode: 'masonry'
-});
+    },
+    finally: () => {
 
-let table = $('#table').DataTable({
-    scrollY: '100px',
-    responsive: true,
-    scroller: true,
-    select: true
-});
-setTimeout(() => {
-    table.row(10).scrollTo();
-}, 1000);
+    }
+})
 
 
- 
+
+// $('[data-fancybox]').fancybox();
+
+// $('#owl-carousel').owlCarousel({
+//     items: 1,
+//     loop: true,
+//     center: true,
+//     dots: true,
+//     dotsData: true,
+//     autoplay: true,
+//     autoplayTimeout: 4000,
+//     autoplayHoverPause: true,
+//     animateOut: 'fadeOut'
+// });
+
+// new Isotope('#masonry', {
+//     itemSelector: '.masonry-item',
+//     layoutMode: 'masonry'
+// });
+
+// let table = $('#table').DataTable({
+//     scrollY: '100px',
+//     responsive: true,
+//     scroller: true,
+//     select: true
+// });
+// setTimeout(() => {
+//     table.row(10).scrollTo();
+// }, 1000);
+
+
+// enquiryForm
+
+
+
 
 
 

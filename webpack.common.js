@@ -8,32 +8,32 @@ const webpack = require('webpack');
 module.exports = {
     entry: {
         home: './src/home/home.ts',
-        about: './src/about/about.ts',
-        contact: './src/contact/contact.ts',
+        // about: './src/about/about.ts',
+        // contact: './src/contact/contact.ts',
         //  service: './src/service/service.ts',
         //  app: './src/index.ts',
-        polyfills: './src/polyfills.ts'
+        // polyfills: './src/polyfills.ts'
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             template: './src/home/template.html',
-            inject: false,
-            filename: path.resolve(__dirname, 'src/home/index.html'),
-            sName: 'home'
+            inject: true,
+            // filename: path.resolve(__dirname, 'src/home/index.html'),
+            // sName: 'home'
         }),
-         new HtmlWebpackPlugin({
-             template: './src/about/template.html',
-             inject: false,
-             filename: path.resolve(__dirname, 'src/about/index.html'),
-             sName: 'about'
-         }),
-         new HtmlWebpackPlugin({
-             template: './src/contact/template.html',
-             inject: false,
-             filename: path.resolve(__dirname, 'src/contact/index.html'),
-             sName: 'contact'
-         }),
+        //  new HtmlWebpackPlugin({
+        //      template: './src/about/template.html',
+        //      inject: false,
+        //      filename: path.resolve(__dirname, 'src/about/index.html'),
+        //      sName: 'about'
+        //  }),
+        //  new HtmlWebpackPlugin({
+        //      template: './src/contact/template.html',
+        //      inject: false,
+        //      filename: path.resolve(__dirname, 'src/contact/index.html'),
+        //      sName: 'contact'
+        //  }),
         // new InlineSourcePlugin(),
         // new HtmlWebpackPlugin({
         //     template: './src/service/template.html',
@@ -51,9 +51,10 @@ module.exports = {
         })
     ],
     output: {
-        publicPath: '/dist',
+        // publicPath: '/dist',
+        publicPath: '/',
         filename: '[name].[chunkhash].bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        // path: path.resolve(__dirname, 'dist')
     },
     // vendor
     optimization: {
@@ -125,7 +126,8 @@ module.exports = {
                         limit: 8192,
                         fallback: 'file-loader',
                         outputPath: '/',
-                        publicPath: '/dist/'
+                        // publicPath: '/dist/'
+                        publicPath: '/'
                     }
                 }]
             },

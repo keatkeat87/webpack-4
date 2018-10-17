@@ -1,19 +1,39 @@
 
 
-export function ajaxForm(settings : {
+export function ajaxForm(settings: {
     elementId: string
-    beforeSend : () => void
-    processing : (percent : string) => void
-    success : () => void
-    error : () => void
-    finally : () => void
+    beforeSend: () => void
+    processing: (percent: number) => void
+    success: (responseText : string) => void
+    error: (responseText : string) => void
+    finally: () => void
 }): void {
-    let { elementId, error, success , processing } = settings;
+    let { elementId, error, success, processing } = settings;
     let form = document.getElementById(elementId);
-    form.addEventListener('submit', (e : Event) => {
+    form.addEventListener('submit', (e: Event) => {
         e.preventDefault();
-
-
+        let formElement = e.target as HTMLFormElement;
+        var xhr = new XMLHttpRequest();
+        xhr.addEventListener('readystatechange', () => {         
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    success(xhr.responseText);
+                }
+                else {
+                    console.error({
+                        status : xhr.status,
+                        responseText : xhr.responseText
+                    });
+                    error(xhr.responseText);
+                }
+                settings.finally();
+            }
+        });
+        xhr.onprogress = function (event) {
+            processing(+Math.round(event.loaded / event.total * 100).toFixed(0));
+        };
+        xhr.open("POST", formElement.action, true);
+        xhr.send(new FormData(formElement));
     });
     return null;
 }
