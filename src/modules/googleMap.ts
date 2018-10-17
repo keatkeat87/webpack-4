@@ -3,7 +3,7 @@ export function setupGoogleMap(googleMapApiKey : string) {
     script.type = 'text/javascript';  
     script.async = true;
     script.defer = true;  
-    script.src = '' //`https://maps.googleapis.com/maps/api/js?key=${addThisId}&callback=initMap`;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${googleMapApiKey}&callback=initMap`;
     document.getElementsByTagName('body')[0].appendChild(script);
 
     
