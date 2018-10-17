@@ -42,13 +42,6 @@
   resolved "http://registry.npmjs.org/@types/isotope-layout/-/isotope-layout-3.0.4.tgz#a3db64cd701d24dcbbdf8e4d65e6ac08a1dd5cd1"
   integrity sha512-xHM93D5KfGnwUzprWoFjIGiYORO8Ug9K1nZ4bIoOdi1k2ZK2qkUrkJ+AqYJNLKsOyhecdEVPI5zAW5xsqQyK3A==
 
-"@types/jquery.form@^3.26.30":
-  version "3.26.30"
-  resolved "https://registry.yarnpkg.com/@types/jquery.form/-/jquery.form-3.26.30.tgz#a9640ac12a00cb81b446f54c675252ea9c1218e0"
-  integrity sha512-LJZcG6DiuWZGroYaYmaZRRXg9q6ph0yWS0wxhWHuC1wsvBljV/L9INtrROZcNwLKZNtxVFgeWb8x49iufW9Z+w==
-  dependencies:
-    "@types/jquery" "*"
-
 "@types/jquery@*", "@types/jquery@^3.3.17":
   version "3.3.17"
   resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.3.17.tgz#0903a65889625facd424f19c6c0a03fddf00b4c6"

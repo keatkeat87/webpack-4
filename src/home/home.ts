@@ -49,7 +49,7 @@ setTimeout(()=>{
     table.row( 10 ).scrollTo();
 },1000);
 
-$('.form').ajaxForm({
+$('.form').ajaxForm(,{
     success: function (response, textStatus, xhr, form) {
         console.log("in ajaxForm success");
         jQuery('.myFormLoading').hide();

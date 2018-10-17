@@ -23,7 +23,6 @@
     "@types/datatables.net-select": "^1.2.4",
     "@types/fancybox": "^2.1.32",
     "@types/jquery": "^3.3.17",
-    "@types/jquery.form": "^3.26.30",
     "@types/owl.carousel": "^2.3.1",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",
