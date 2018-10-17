@@ -1,149 +1,156 @@
-<% for (var css in htmlWebpackPlugin.files.css) { 
-    if(htmlWebpackPlugin.files.css[css].indexOf(htmlWebpackPlugin.options.sName) !== -1){
-
-    
-
-    %>
-<link href="<%= htmlWebpackPlugin.files.css[css] %>"
-    rel="stylesheet">
-<% }  }%>
-
-
- 
-
-<div id="home"></div>
-
-<table id="table">
-    <thead>
-        <tr>
-            <th>Column 1</th>
-            <th>Column 2</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Row 1 Data 1</td>
-            <td>Row 1 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 2 Data 1</td>
-            <td>Row 2 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 1 Data 1</td>
-            <td>Row 1 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 2 Data 1</td>
-            <td>Row 2 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 11 Data 1</td>
-            <td>Row 1 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 2 Data 1</td>
-            <td>Row 2 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 1 Data 1</td>
-            <td>Row 1 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 2 Data 1</td>
-            <td>Row 2 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 1 Data 1</td>
-            <td>Row 1 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 2 Data 1</td>
-            <td>Row 2 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 1 Data 1</td>
-            <td>Row 1 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 2 Data 1</td>
-            <td>Row 2 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 1 Data 1</td>
-            <td>Row 1 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 2 Data 1</td>
-            <td>Row 2 Data 2</td>
-        </tr>
-    </tbody>
-</table>
-
-<div id="masonry">
-    <div class="masonry-item">
-        <img src="<%= require('../images/big.jpg') %>" width="200"/>
-    </div>
-    <div class="masonry-item">
-        <img src="<%= require('../images/big.jpg') %>" width="200"/>
-    </div>
-</div>
-
-
-<a href="<%= require('../images/big.jpg') %>" data-fancybox>
-    <img src="<%= require('../images/big.jpg') %>" />
-</a>
-
-<div id="owl-carousel" class="owl-carousel owl-theme">
-    <div class="wrap" data-dot="<%= require('../images/big.jpg') %>">
-        <img src="<%= require('../images/big.jpg') %>"
-                alt="hydro o-ring and oil seal">
-    </div>
-    <div class="wrap" data-dot="<%= require('../images/big.jpg') %>">
-        <img src="<%= require('../images/big.jpg') %>"
-                alt="hydro o-ring and oil seal">
-    </div>
-</div>
-
-
-<!--[if le IE 11]> 
-    <% for(let chunk of Object.keys(htmlWebpackPlugin.files.chunks).filter(c => c.indexOf('polyfills') !== -1) ) {
-    if(htmlWebpackPlugin.files.chunks[chunk].entry.indexOf('runtime~') !== -1) {         
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <% for (var css in htmlWebpackPlugin.files.css) { 
+        if(htmlWebpackPlugin.files.css[css].indexOf(htmlWebpackPlugin.options.sName) !== -1){
         %>
-<script>
-    <%= compilation.assets[htmlWebpackPlugin.files.chunks[chunk].entry.split('/').pop()].source() %>
-</script>
-<% 
-   } 
-   else {
-      %>
-        <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
-<% 
-   }
-} 
-%> 
-<![endif]-->
-
- 
-
-<% for (var chunk in htmlWebpackPlugin.files.chunks) { 
-    if(chunk.indexOf(htmlWebpackPlugin.options.sName) !== -1) { 
+    <link href="<%= htmlWebpackPlugin.files.css[css] %>"
+        rel="stylesheet">
+    <% }  }%>
+</head>
+<body>
+    <div id="app">
+    
+    <input v-validate="'required|email'" name="email" type="text">
+    <span>{{ errors.first('email') }}</span>
+     
+    
+    <div id="home"></div>
+    
+    <table id="table">
+        <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Row 1 Data 1</td>
+                <td>Row 1 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 2 Data 1</td>
+                <td>Row 2 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 1 Data 1</td>
+                <td>Row 1 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 2 Data 1</td>
+                <td>Row 2 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 11 Data 1</td>
+                <td>Row 1 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 2 Data 1</td>
+                <td>Row 2 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 1 Data 1</td>
+                <td>Row 1 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 2 Data 1</td>
+                <td>Row 2 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 1 Data 1</td>
+                <td>Row 1 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 2 Data 1</td>
+                <td>Row 2 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 1 Data 1</td>
+                <td>Row 1 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 2 Data 1</td>
+                <td>Row 2 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 1 Data 1</td>
+                <td>Row 1 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 2 Data 1</td>
+                <td>Row 2 Data 2</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div id="masonry">
+        <div class="masonry-item">
+            <img src="<%= require('../images/big.jpg') %>" width="200"/>
+        </div>
+        <div class="masonry-item">
+            <img src="<%= require('../images/big.jpg') %>" width="200"/>
+        </div>
+    </div>
+    
+    
+    <a href="<%= require('../images/big.jpg') %>" data-fancybox>
+        <img src="<%= require('../images/big.jpg') %>" />
+    </a>
+    
+    <div id="owl-carousel" class="owl-carousel owl-theme">
+        <div class="wrap" data-dot="<%= require('../images/big.jpg') %>">
+            <img src="<%= require('../images/big.jpg') %>"
+                    alt="hydro o-ring and oil seal">
+        </div>
+        <div class="wrap" data-dot="<%= require('../images/big.jpg') %>">
+            <img src="<%= require('../images/big.jpg') %>"
+                    alt="hydro o-ring and oil seal">
+        </div>
+    </div>
+    
+    
+    <!--[if le IE 11]> 
+        <% for(let chunk of Object.keys(htmlWebpackPlugin.files.chunks).filter(c => c.indexOf('polyfills') !== -1) ) {
         if(htmlWebpackPlugin.files.chunks[chunk].entry.indexOf('runtime~') !== -1) {         
-             %>
-<script>
-    <%= compilation.assets[htmlWebpackPlugin.files.chunks[chunk].entry.split('/').pop()].source() %>
-</script>
-<% 
-        } 
-        else {
-           %>
-<script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
-<% 
+            %>
+    <script>
+        <%= compilation.assets[htmlWebpackPlugin.files.chunks[chunk].entry.split('/').pop()].source() %>
+    </script>
+    <% 
+       } 
+       else {
+          %>
+            <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+    <% 
+       }
+    } 
+    %> 
+    <![endif]-->
+    <% for (var chunk in htmlWebpackPlugin.files.chunks) { 
+        if(chunk.indexOf(htmlWebpackPlugin.options.sName) !== -1) { 
+            if(htmlWebpackPlugin.files.chunks[chunk].entry.indexOf('runtime~') !== -1) {         
+                 %>
+    <script>
+        <%= compilation.assets[htmlWebpackPlugin.files.chunks[chunk].entry.split('/').pop()].source() %>
+    </script>
+    <% 
+            } 
+            else {
+               %>
+    <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+    <% 
+            }
         }
-    }
-} 
-%>
-
-
-
- 
+    } 
+    %>
+    
+    
+</div>
+     
+</body>
+</html>

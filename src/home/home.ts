@@ -18,7 +18,8 @@ import 'datatables.net';
 import 'datatables.net-responsive';
 import 'datatables.net-scroller';
 import 'datatables.net-select';
-import 'jquery-form';
+import Vue from 'vue';
+import VeeValidate from 'vee-validate';
 
 $('[data-fancybox]').fancybox();
 
@@ -48,6 +49,14 @@ let table = $('#table').DataTable({
 setTimeout(() => {
     table.row(10).scrollTo();
 }, 1000);
+
+Vue.use(VeeValidate);
+var app = new Vue({
+    el: '#app',
+    data: {
+        message: 'Hello Vue!'
+    }
+})
 
 
 
