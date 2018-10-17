@@ -1,6 +1,4 @@
 
-import * as $ from 'jquery';
-
 declare let fbq : any;
 export function setupPixel(facebookPixelId : string) {
     let script = document.createElement('script') as HTMLScriptElement;
@@ -21,10 +19,13 @@ export function setupPixel(facebookPixelId : string) {
     fbq('init', facebookPixelId);
     fbq('track', 'PageView');
 
-    $('.facebookPixelTracking').click(function(){
-        let trackEventName = $(this).data('facebook-pixel-event');
-        fbq('track', trackEventName);
+    document.querySelectorAll<HTMLElement>('.facebookPixelTracking').forEach(elem => {
+        elem.addEventListener('click', () => {            
+            let trackEventName = elem.dataset['facebookPixelEvent'];
+            fbq('track', trackEventName);
+        });
     });
+   
 }
 
 
