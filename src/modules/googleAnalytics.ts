@@ -27,8 +27,12 @@ export function setupGA(googleAnalyticsId: string) {
     window.dataLayer = window.dataLayer || [];
     function gtag(...args: any[]){window.dataLayer.push(arguments);}
     gtag('js', new Date());    
-    gtag('config', '${ googleAnalyticsId }');
-
+    gtag('config', '${ googleAnalyticsId }', {
+        'custom_map': {
+            'dimension1': 'userIsAdmin',
+            'dimension2': 'scrolled'
+        }
+    });
 
     setTimeout(() => {
         gtag('event', 'aaa', {
@@ -37,10 +41,9 @@ export function setupGA(googleAnalyticsId: string) {
         });
     },5000);
 
-    // document.querySelectorAll<HTMLElement>('.facebookPixelTracking').forEach(elem => {
+    // document.querySelectorAll<HTMLElement>('.googleAnalyticsTracking').forEach(elem => {
     //     elem.addEventListener('click', () => {            
-    //         let trackEventName = elem.dataset['facebookPixelEvent'];
-    //         fbq('track', trackEventName);
+    //         let trackEventName = elem.dataset['googleAnalyticsEvent'];
     //     });
     // });   
 }
