@@ -21,11 +21,14 @@ import 'datatables.net-select';
 import { ajaxForm } from '../modules/ajaxForm';
 import { setupPixel } from '../modules/facebookPixel';
 import { setupGA } from '../modules/googleAnalytics';
+import { setupAddThis } from '../modules/addThis';
+import { setupLiveChat } from '../modules/zopimLiveChat';
 import { appConfig } from '../appConfig';
-
 
 setupPixel(appConfig.facebookPixelId);
 setupGA(appConfig.googleAnalyticsId);
+setupAddThis(appConfig.addThisId);
+setupLiveChat(appConfig.zopimLiveChatId);
 // ajaxForm({
 //     elementId: 'enquiryForm',
 //     beforeSend: () => {

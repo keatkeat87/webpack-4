@@ -19,8 +19,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/home/template.html',
             inject: true,
-            // filename: path.resolve(__dirname, 'src/home/index.html'),
-            // sName: 'home'
+            filename: path.resolve(__dirname, 'src/home/index.html'),
+            sName: 'home'
         }),
         //  new HtmlWebpackPlugin({
         //      template: './src/about/template.html',
@@ -51,10 +51,10 @@ module.exports = {
         })
     ],
     output: {
-        // publicPath: '/dist',
-        publicPath: '/',
+        publicPath: '/dist',
+        //publicPath: '/',
         filename: '[name].[chunkhash].bundle.js',
-        // path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist')
     },
     // vendor
     optimization: {
