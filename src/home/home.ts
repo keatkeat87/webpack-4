@@ -21,32 +21,40 @@ import 'datatables.net-select';
 import { ajaxForm } from '../modules/ajaxForm';
 import { setupPixel } from '../modules/facebookPixel';
 import { setupGA } from '../modules/googleAnalytics';
-// import { setupAddThis } from '../modules/addThis';
-// import { setupLiveChat } from '../modules/zopimLiveChat';
+import { setupAddThis } from '../modules/addThis';
+import { setupLiveChat } from '../modules/zopimLiveChat';
 import { appConfig } from '../appConfig';
+import { setupGoogleMap } from '../modules/googleMap';
+import { setupFacebookPage } from '../modules/facebookPage';
+
 
 setupPixel(appConfig.facebookPixelId);
 setupGA(appConfig.googleAnalyticsId);
-// setupAddThis(appConfig.addThisId);
-// setupLiveChat(appConfig.zopimLiveChatId);
-// ajaxForm({
-//     elementId: 'enquiryForm',
-//     beforeSend: () => {
-//         console.log('beforeSend');
-//     },
-//     error: (errorText) => {
-//         console.log(errorText);
-//     },
-//     processing: () => {
+setupAddThis(appConfig.addThisId);
+setupLiveChat(appConfig.zopimLiveChatId);
+setupGoogleMap(appConfig.googleMapSetting);
+setupFacebookPage(appConfig.facebookAppId);
 
-//     },
-//     success: () => {
-
-//     },
-//     finally: () => {
-
-//     }
-// })
+ajaxForm({
+    elementId: 'enquiryForm',
+    beforeSend: () => {
+        //TODO
+        console.log('beforeSend');
+    },
+    error: (errorText) => {
+        //TODO
+        console.log(errorText);
+    },
+    processing: () => {
+        //upload percentage
+    },
+    success: () => {
+        //TODO
+    },
+    finally: () => {
+        //TODO : finish all job
+    }
+})
 
 
 

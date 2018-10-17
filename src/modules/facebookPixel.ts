@@ -22,12 +22,6 @@ export function setupPixel(facebookPixelId : string) {
     document.querySelectorAll<HTMLElement>('.facebookPixelTracking').forEach(elem => {
         elem.addEventListener('click', () => {            
             let trackEventName = elem.dataset['facebookPixelEvent'];
-            let pcNoTrack = elem.dataset['pcNoTrack'];
-            if (pcNoTrack != undefined) {
-                console.log('over 1024px will no ga');
-                var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-                if (width > 1024) return false;
-            }
             fbq('track', trackEventName);
         });
     });   

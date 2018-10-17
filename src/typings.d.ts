@@ -15,20 +15,9 @@
 //     export = Isotope;
 // }
 
+declare module '*.png';
+declare module '*.jpg';
 
-declare function ajaxForm(options: {
-    clearForm : boolean,
- 
-    beforeSend : () => void
-}, data: undefined, dataType: undefined, onSuccess: (data: any, textStatus: string, jqXHR: object, $form: JQuery) => void): JQuery
-
-interface JQuery {
-    ajaxForm: any;
-}
-
-interface JQueryStatic {
-    ajaxForm: any;
-}
 
 
 

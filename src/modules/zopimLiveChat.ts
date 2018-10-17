@@ -1,3 +1,11 @@
+import { setEvent } from './googleAnalytics';
+
+declare global {
+    interface Window {
+        $zopim: any
+    }
+}
+
 export function setupLiveChat(zopimLiveChatId : string) {
     let script = document.createElement('script') as HTMLScriptElement;
     script.type = 'text/javascript';    
@@ -9,6 +17,11 @@ export function setupLiveChat(zopimLiveChatId : string) {
         type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
     `;
     document.getElementsByTagName('body')[0].appendChild(script);
+    window.$zopim(function () {
+        window.$zopim.livechat.setOnChatStart(()=> {
+            setEvent('liveChat');
+        })
+    });
 }
 
 
