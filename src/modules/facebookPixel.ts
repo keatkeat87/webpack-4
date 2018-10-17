@@ -24,8 +24,7 @@ export function setupPixel(facebookPixelId : string) {
             let trackEventName = elem.dataset['facebookPixelEvent'];
             fbq('track', trackEventName);
         });
-    });
-   
+    });   
 }
 
 
