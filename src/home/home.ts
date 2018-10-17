@@ -19,26 +19,29 @@ import 'datatables.net-responsive';
 import 'datatables.net-scroller';
 import 'datatables.net-select';
 import { ajaxForm } from '../modules/ajaxForm';
-import { loadFacebookPixel } from '../modules/tracking-code';
+import { setupPixel } from '../modules/facebookPixel';
+import { appConfig } from '../appConfig';
 
-ajaxForm({
-    elementId: 'enquiryForm',
-    beforeSend: () => {
-        console.log('beforeSend');
-    },
-    error: (errorText) => {
-        console.log(errorText);
-    },
-    processing: () => {
+setupPixel(appConfig.facebookPixelId);
 
-    },
-    success: () => {
+// ajaxForm({
+//     elementId: 'enquiryForm',
+//     beforeSend: () => {
+//         console.log('beforeSend');
+//     },
+//     error: (errorText) => {
+//         console.log(errorText);
+//     },
+//     processing: () => {
 
-    },
-    finally: () => {
+//     },
+//     success: () => {
 
-    }
-})
+//     },
+//     finally: () => {
+
+//     }
+// })
 
 
 
