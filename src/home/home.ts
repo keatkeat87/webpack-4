@@ -18,6 +18,7 @@ import 'datatables.net';
 import 'datatables.net-responsive';
 import 'datatables.net-scroller';
 import 'datatables.net-select';
+import { ajaxForm } from '../modules/ajaxForm';
 
 $('[data-fancybox]').fancybox();
 
@@ -47,6 +48,7 @@ let table = $('#table').DataTable({
 setTimeout(() => {
     table.row(10).scrollTo();
 }, 1000);
+
 
  
 
