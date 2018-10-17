@@ -19,7 +19,7 @@ import 'datatables.net-responsive';
 import 'datatables.net-scroller';
 import 'datatables.net-select';
 import { ajaxForm } from '../modules/ajaxForm';
-import {loadFacebookPixel} from '../shared/tracking-code';
+import { loadFacebookPixel } from '../modules/tracking-code';
 
 ajaxForm({
     elementId: 'enquiryForm',
