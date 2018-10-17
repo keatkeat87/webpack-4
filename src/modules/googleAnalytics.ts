@@ -11,8 +11,8 @@ export function setupGA(googleAnalyticsId: string) {
     script.async = true;
     script.src = `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`;
     document.getElementsByTagName('head')[0].appendChild(script);
-
  
+    // 因为它需要定义全局变量，所以不能再 ts 里面写. 
     let script2 = document.createElement('script') as HTMLScriptElement;
     script2.type = 'text/javascript';
     script2.textContent = `
@@ -22,27 +22,7 @@ export function setupGA(googleAnalyticsId: string) {
         gtag('config', '${ googleAnalyticsId }');
     `;
     document.getElementsByTagName('head')[0].appendChild(script2);
-
-    
-    // window.dataLayer = window.dataLayer || [];
-    // function gtag(...args: any[]){window.dataLayer.push(arguments);}
-    // gtag('js', new Date());    
-    // gtag('config', '${ googleAnalyticsId }', {
-    //     'custom_map': {
-    //         'dimension1': 'userIsAdmin',
-    //         'dimension2': 'scrolled'
-    //     }
-    // });
-
-    setTimeout(() => {
-        
-        gtag('event', 'aaa', {
-            'event_category' : 'bbb',
-            'event_label' : 'ccc'
-        });
-        alert('done');
-    },5000);
-
+  
     // document.querySelectorAll<HTMLElement>('.googleAnalyticsTracking').forEach(elem => {
     //     elem.addEventListener('click', () => {            
     //         let trackEventName = elem.dataset['googleAnalyticsEvent'];
