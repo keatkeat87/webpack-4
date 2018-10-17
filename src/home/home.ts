@@ -20,10 +20,12 @@ import 'datatables.net-scroller';
 import 'datatables.net-select';
 import { ajaxForm } from '../modules/ajaxForm';
 import { setupPixel } from '../modules/facebookPixel';
+import { setupGA } from '../modules/googleAnalytics';
 import { appConfig } from '../appConfig';
 
-setupPixel(appConfig.facebookPixelId);
 
+setupPixel(appConfig.facebookPixelId);
+setupGA(appConfig.googleAnalyticsId);
 // ajaxForm({
 //     elementId: 'enquiryForm',
 //     beforeSend: () => {

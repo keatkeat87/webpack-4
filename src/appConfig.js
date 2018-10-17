@@ -1,7 +1,7 @@
 export const appConfig = {
     facebookAppId : '',
     facebookPixelId : '',
-    googleAnalyticsId : '',
+    googleAnalyticsId : 'UA-109990000-1',
     googleAdsId : '',
     googleMapApiKey : '',
     addThisId: '',
