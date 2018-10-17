@@ -3,11 +3,12 @@
 export function ajaxForm(settings: {
     elementId: string
     beforeSend: () => void
-    processing: (percent: number) => void
     success: (responseText : string) => void
     error: (responseText : string) => void
     finally: () => void
+    processing?: (percent: number) => void
 }): void {
+    settings.processing = settings.processing || function(){};
     let { elementId, error, success, processing } = settings;
     let form = document.getElementById(elementId);
     form.addEventListener('submit', (e: Event) => {
