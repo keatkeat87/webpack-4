@@ -29,6 +29,14 @@ export function setupGA(googleAnalyticsId: string) {
     gtag('js', new Date());    
     gtag('config', '${ googleAnalyticsId }');
 
+
+    setTimeout(() => {
+        gtag('event', 'aaa', {
+            'event_category' : 'bbb',
+            'event_label' : 'ccc'
+        });
+    },5000);
+
     // document.querySelectorAll<HTMLElement>('.facebookPixelTracking').forEach(elem => {
     //     elem.addEventListener('click', () => {            
     //         let trackEventName = elem.dataset['facebookPixelEvent'];
