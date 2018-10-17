@@ -14,11 +14,12 @@
 </head>
 <body>
     
-    <form action="/contact/contactForm" enctype="multipart/form-data" method="post" >
-        <input type="text" name="name" required>
-        <input type="text" name="hp" required>
-        <input type="email" name="email" required>
-        <textarea name="message" required></textarea>
+    <form id="enquiryForm" action="http://192.168.1.152:61547/api/debug/sendEmail" enctype="multipart/form-data" method="post" >
+        <input type="text" name="name" required value="da" >
+        <input type="text" name="hp" required value="asd" >
+        <input type="email" name="email" required value="de@hotmail.com">
+        <input type="subject" name="subject" required value="sub" >
+        <textarea name="message" required value="asdwdsa" >asdwdsa</textarea>
         <input type="file" name="files" multiple />
         <button type="submit">
             <span>Send</span>
@@ -28,7 +29,7 @@
         </button>
     </form>
      
-    
+<!--     
     <div id="home"></div>
     
     <table id="table">
@@ -121,7 +122,7 @@
             <img src="<%= require('../images/big.jpg') %>"
                     alt="hydro o-ring and oil seal">
         </div>
-    </div>
+    </div> -->
     
     
     <!--[if le IE 11]> 
