@@ -19,7 +19,12 @@
 declare namespace intlTelInput { 
 }
 
-declare function intlTelInput(input : HTMLInputElement) : void;
+declare function intlTelInput(input : HTMLInputElement, options : {
+    preferredCountries : string[],
+    customPlaceholder : (selectedCountryPlaceholder: string, selectedCountryData: {
+        dialCode : string
+    }) => string
+}) : void;
 
 declare module 'intl-tel-input' 
 {      

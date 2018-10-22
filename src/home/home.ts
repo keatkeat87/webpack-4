@@ -30,7 +30,15 @@ import { setupGoogleMap } from '../modules/googleMap';
 import { setupFacebookPage } from '../modules/facebookPage';
 
 var input = document.getElementById('phone') as HTMLInputElement;
-intlTelInput(input);
+intlTelInput(input,{
+    preferredCountries: ['sg', 'my', 'id'],
+    customPlaceholder: function (selectedCountryPlaceholder, selectedCountryData) {
+        console.log(selectedCountryData)
+        return `+${selectedCountryData.dialCode} ${selectedCountryPlaceholder}`;
+    }
+});
+
+
 
 setupPixel(appConfig.facebookPixelId);
 setupGA(appConfig.googleAnalyticsId);
@@ -39,7 +47,7 @@ setupLiveChat(appConfig.zopimLiveChatId);
 setupGoogleMap(appConfig.googleMapSetting);
 setupFacebookPage(appConfig.facebookAppId);
 
-let step1Form = JSON.parse(localStorage.get('step1'));
+// let step1Form = JSON.parse(localStorage.get('step1'));
 
 ajaxForm({
     elementId: 'enquiryForm',

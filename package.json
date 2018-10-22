@@ -11,7 +11,8 @@
     "start": "webpack-dev-server --config webpack.dev.js --open",
     "hot": "webpack-dev-server --config webpack.dev.js --hotOnly --open",
     "build": "webpack -p --config webpack.prod.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "buildDev": "webpack --config webpack.dev.js  --watch"
   },
   "keywords": [],
   "author": "",
