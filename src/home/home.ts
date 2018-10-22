@@ -5,6 +5,7 @@ import '@fancyapps/fancybox/dist/jquery.fancybox.min.css';
 import 'owl.carousel/dist/assets/owl.carousel.min.css';
 import 'datatables.net-dt/css/jquery.dataTables.min.css';
 import 'datatables.net-responsive-dt/css/responsive.dataTables.min.css';
+import 'intl-tel-input/build/css/intlTelInput.min.css';
 import { a } from '../shared/a';
 import { b } from '../shared/b';
 // console.log(a + 'da');
@@ -18,6 +19,7 @@ import 'datatables.net';
 import 'datatables.net-responsive';
 import 'datatables.net-scroller';
 import 'datatables.net-select';
+import 'intl-tel-input/build/js/intlTelInput';
 import { ajaxForm } from '../modules/ajaxForm';
 import { setupPixel } from '../modules/facebookPixel';
 import { setupGA } from '../modules/googleAnalytics';
@@ -26,6 +28,9 @@ import { setupLiveChat } from '../modules/zopimLiveChat';
 import { appConfig } from '../appConfig';
 import { setupGoogleMap } from '../modules/googleMap';
 import { setupFacebookPage } from '../modules/facebookPage';
+
+var input = document.querySelector("#phone");
+window.intlTelInput(input);
 
 
 setupPixel(appConfig.facebookPixelId);
@@ -88,7 +93,6 @@ ajaxForm({
 // }, 1000);
 
 
-// enquiryForm
 
 
 
