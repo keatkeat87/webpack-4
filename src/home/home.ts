@@ -1,13 +1,14 @@
 
-import '../shared/a.scss';
-import '../shared/b.scss';
+// import '../shared/a.scss';
+// import '../shared/b.scss';
+import './home.scss';
 import '@fancyapps/fancybox/dist/jquery.fancybox.min.css';
 import 'owl.carousel/dist/assets/owl.carousel.min.css';
 import 'datatables.net-dt/css/jquery.dataTables.min.css';
 import 'datatables.net-responsive-dt/css/responsive.dataTables.min.css';
 import 'intl-tel-input/build/css/intlTelInput.min.css';
-import { a } from '../shared/a';
-import { b } from '../shared/b';
+// import { a } from '../shared/a';
+// import { b } from '../shared/b';
 // console.log(a + 'da');
 // console.log(b + 'ta');
 
@@ -38,8 +39,6 @@ setupAddThis(appConfig.addThisId);
 setupLiveChat(appConfig.zopimLiveChatId);
 setupGoogleMap(appConfig.googleMapSetting);
 setupFacebookPage(appConfig.facebookAppId);
-
-let step1Form = JSON.parse(localStorage.get('step1'));
 
 ajaxForm({
     elementId: 'enquiryForm',
