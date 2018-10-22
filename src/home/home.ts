@@ -19,7 +19,7 @@ import 'datatables.net';
 import 'datatables.net-responsive';
 import 'datatables.net-scroller';
 import 'datatables.net-select';
-import Intl from 'intl-tel-input';
+import intlTelInput from 'intl-tel-input';
 import { ajaxForm } from '../modules/form';
 import { setupPixel } from '../modules/facebookPixel';
 import { setupGA } from '../modules/googleAnalytics';
@@ -29,9 +29,8 @@ import { appConfig } from '../appConfig';
 import { setupGoogleMap } from '../modules/googleMap';
 import { setupFacebookPage } from '../modules/facebookPage';
 
-var input = document.querySelector("#phone");
-Intl.intlTelInput(input);
-
+var input = document.getElementById('phone') as HTMLInputElement;
+intlTelInput(input);
 
 setupPixel(appConfig.facebookPixelId);
 setupGA(appConfig.googleAnalyticsId);
@@ -39,9 +38,6 @@ setupAddThis(appConfig.addThisId);
 setupLiveChat(appConfig.zopimLiveChatId);
 setupGoogleMap(appConfig.googleMapSetting);
 setupFacebookPage(appConfig.facebookAppId);
-
-
-
 
 let step1Form = JSON.parse(localStorage.get('step1'));
 

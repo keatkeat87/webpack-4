@@ -15,6 +15,17 @@
 //     export = Isotope;
 // }
 
+
+declare namespace intlTelInput { 
+}
+
+declare function intlTelInput(input : HTMLInputElement) : void;
+
+declare module 'intl-tel-input' 
+{      
+    export default intlTelInput;
+}
+
 declare module '*.png';
 declare module '*.jpg';
 
