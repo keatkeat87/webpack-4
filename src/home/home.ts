@@ -18,7 +18,7 @@ import 'datatables.net';
 import 'datatables.net-responsive';
 import 'datatables.net-scroller';
 import 'datatables.net-select';
-import { ajaxForm } from '../modules/ajaxForm';
+import { ajaxForm } from '../modules/form';
 import { setupPixel } from '../modules/facebookPixel';
 import { setupGA } from '../modules/googleAnalytics';
 import { setupAddThis } from '../modules/addThis';
@@ -34,6 +34,11 @@ setupAddThis(appConfig.addThisId);
 setupLiveChat(appConfig.zopimLiveChatId);
 setupGoogleMap(appConfig.googleMapSetting);
 setupFacebookPage(appConfig.facebookAppId);
+
+
+
+
+let step1Form = JSON.parse(localStorage.get('step1'));
 
 ajaxForm({
     elementId: 'enquiryForm',
