@@ -19,7 +19,7 @@ import 'datatables.net';
 import 'datatables.net-responsive';
 import 'datatables.net-scroller';
 import 'datatables.net-select';
-import 'intl-tel-input/build/js/intlTelInput';
+import Intl from 'intl-tel-input';
 import { ajaxForm } from '../modules/form';
 import { setupPixel } from '../modules/facebookPixel';
 import { setupGA } from '../modules/googleAnalytics';
@@ -30,7 +30,7 @@ import { setupGoogleMap } from '../modules/googleMap';
 import { setupFacebookPage } from '../modules/facebookPage';
 
 var input = document.querySelector("#phone");
-window.intlTelInput(input);
+Intl.intlTelInput(input);
 
 
 setupPixel(appConfig.facebookPixelId);
