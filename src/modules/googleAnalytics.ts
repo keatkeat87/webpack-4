@@ -37,14 +37,31 @@ export function setupGA(googleAnalyticsId: string) {
     },15000);
   
     document.querySelectorAll<HTMLElement>('.googleAnalyticsTracking').forEach(elem => {
-        elem.addEventListener('click', () => {            
-            let trackEventName = elem.dataset['googleAnalyticsEvent'];
-            gtag('event', `event_${trackEventName}`, {
-                'event_category': `event_${trackEventName}`,
-                'event_label': `event_${trackEventName}`,
-                'value': 1
+        if(elem.nodeType == 1){
+            //form
+            elem.addEventListener('submit',(e)=>{
+                e.preventDefault();
+                const formData = new FormData(elem as HTMLFormElement);
+                // const trackEventName = formData.get('action') as string;
+                // gtag('event', `event_${trackEventName}`, {
+                //     'event_category': `event_${trackEventName}`,
+                //     'event_label': `event_${trackEventName}`,
+                //     'value': 1
+                // });
+                console.log(formData)
             });
-        });
+        }
+        else{
+            elem.addEventListener('click', () => {            
+                const trackEventName = elem.dataset['googleAnalyticsEvent'];
+                // gtag('event', `event_${trackEventName}`, {
+                //     'event_category': `event_${trackEventName}`,
+                //     'event_label': `event_${trackEventName}`,
+                //     'value': 1
+                // });
+            });
+        }
+        
     });   
 }
 

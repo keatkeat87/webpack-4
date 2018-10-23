@@ -21,6 +21,7 @@ import 'datatables.net-responsive';
 import 'datatables.net-scroller';
 import 'datatables.net-select';
 import intlTelInput from 'intl-tel-input';
+import 'intl-tel-input/build/js/utils';
 import { ajaxForm } from '../modules/form';
 import { setupPixel } from '../modules/facebookPixel';
 import { setupGA } from '../modules/googleAnalytics';
@@ -29,49 +30,93 @@ import { setupLiveChat } from '../modules/zopimLiveChat';
 import { appConfig } from '../appConfig';
 import { setupGoogleMap } from '../modules/googleMap';
 import { setupFacebookPage } from '../modules/facebookPage';
+import { scrollToTop, slideToggle } from '../modules/dom';
 
-var input = document.getElementById('phone') as HTMLInputElement;
-intlTelInput(input,{
-    preferredCountries: ['sg', 'my', 'id'],
-    customPlaceholder: function (selectedCountryPlaceholder, selectedCountryData) {
-        console.log(selectedCountryData)
-        return `+${selectedCountryData.dialCode} ${selectedCountryPlaceholder}`;
+setupGA(appConfig.googleAnalyticsId);
+
+const mobileNavElem = document.getElementById('mobileNav');
+document.getElementById('pcNav').childNodes.forEach((node) => {
+    const clone = node.cloneNode(true);
+    mobileNavElem.appendChild(clone);
+});
+
+document.querySelectorAll('sideToggle').forEach((elem)=>{
+    elem.addEventListener('click',()=>{
+        slideToggle(document.getElementById('fixSideNav'));
+    });
+});
+
+document.getElementById('scrollToTop').addEventListener('click',()=>{
+    scrollToTop();
+});
+
+let scrolled = false;
+window.addEventListener('scroll', ()=>{
+    let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollTopElem = document.getElementById('scrollToTop');
+    if(scrollTop < 100){
+        scrollTopElem.classList.remove('show');
+    }
+    else{
+        scrollTopElem.classList.add('show');
     }
 });
 
+setTimeout(()=>{
+    document.getElementById('scrollToTop').classList.add('show');
+},2000)
+
+setTimeout(()=>{
+    document.getElementById('scrollToTop').classList.remove('show');
+},4000)
 
 
-setupPixel(appConfig.facebookPixelId);
-setupGA(appConfig.googleAnalyticsId);
-setupAddThis(appConfig.addThisId);
-setupLiveChat(appConfig.zopimLiveChatId);
-setupGoogleMap(appConfig.googleMapSetting);
-setupFacebookPage(appConfig.facebookAppId);
+
+
+
+
+
+
+// var input = document.getElementById('phone') as HTMLInputElement;
+// intlTelInput(input,{
+//     preferredCountries: ['sg', 'my', 'id'],
+//     customPlaceholder: function (selectedCountryPlaceholder, selectedCountryData) {
+//         console.log(selectedCountryData)
+//         return `+${selectedCountryData.dialCode} ${selectedCountryPlaceholder}`;
+//     }
+// });
+
+
+
+// setupPixel(appConfig.facebookPixelId);
+// setupGA(appConfig.googleAnalyticsId);
+// setupAddThis(appConfig.addThisId);
+// setupLiveChat(appConfig.zopimLiveChatId);
+// setupGoogleMap(appConfig.googleMapSetting);
+// setupFacebookPage(appConfig.facebookAppId);
 
 // let step1Form = JSON.parse(localStorage.get('step1'));
 
-ajaxForm({
-    elementId: 'enquiryForm',
-    beforeSend: () => {
-        //TODO
-        console.log('beforeSend');
-    },
-    error: (errorText) => {
-        //TODO
-        console.log(errorText);
-    },
-    processing: () => {
-        //upload percentage
-    },
-    success: () => {
-        //TODO
-    },
-    finally: () => {
-        //TODO : finish all job
-    }
-})
-
-
+// ajaxForm({
+//     elementId: 'enquiryForm',
+//     beforeSend: () => {
+//         //TODO
+//         console.log('beforeSend');
+//     },
+//     error: (errorText) => {
+//         //TODO
+//         console.log(errorText);
+//     },
+//     processing: () => {
+//         //upload percentage
+//     },
+//     success: () => {
+//         //TODO
+//     },
+//     finally: () => {
+//         //TODO : finish all job
+//     }
+// })
 
 // $('[data-fancybox]').fancybox();
 
