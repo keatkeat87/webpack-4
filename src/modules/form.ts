@@ -56,6 +56,7 @@ export function ajaxForm(settings: {
         xhr.onprogress = function (event) {
             processing(+Math.round(event.loaded / event.total * 100).toFixed(0));
         };
+        console.log(formElement.action)
         xhr.open("POST", formElement.action, true);
         let formData = new FormData(formElement);
         if (combineToFormData.length > 0) {

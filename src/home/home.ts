@@ -34,49 +34,6 @@ import { scrollToTop, slideToggle } from '../modules/dom';
 
 setupGA(appConfig.googleAnalyticsId);
 
-const mobileNavElem = document.getElementById('mobileNav');
-document.getElementById('pcNav').childNodes.forEach((node) => {
-    const clone = node.cloneNode(true);
-    mobileNavElem.appendChild(clone);
-});
-
-document.querySelectorAll('sideToggle').forEach((elem)=>{
-    elem.addEventListener('click',()=>{
-        slideToggle(document.getElementById('fixSideNav'));
-    });
-});
-
-document.getElementById('scrollToTop').addEventListener('click',()=>{
-    scrollToTop();
-});
-
-let scrolled = false;
-window.addEventListener('scroll', ()=>{
-    let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    const scrollTopElem = document.getElementById('scrollToTop');
-    if(scrollTop < 100){
-        scrollTopElem.classList.remove('show');
-    }
-    else{
-        scrollTopElem.classList.add('show');
-    }
-});
-
-setTimeout(()=>{
-    document.getElementById('scrollToTop').classList.add('show');
-},2000)
-
-setTimeout(()=>{
-    document.getElementById('scrollToTop').classList.remove('show');
-},4000)
-
-
-
-
-
-
-
-
 // var input = document.getElementById('phone') as HTMLInputElement;
 // intlTelInput(input,{
 //     preferredCountries: ['sg', 'my', 'id'],
