@@ -32,7 +32,7 @@ import { setupGoogleMap } from '../modules/googleMap';
 import { setupFacebookPage } from '../modules/facebookPage';
 import { scrollToTop, slideToggle } from '../modules/dom';
 
-setupGA(appConfig.googleAnalyticsId);
+// setupGA(appConfig.googleAnalyticsId);
 
 // var input = document.getElementById('phone') as HTMLInputElement;
 // intlTelInput(input,{
