@@ -6,13 +6,15 @@ export function scrollToTop() {
     }
 }
 
-export function slideToggle(element : HTMLElement) {
-    const clientHeight = element.clientHeight;
-    element.style.height = clientHeight + 'px';
-    setTimeout(() =>{
-        element.classList.toggle('hidden');
-    })
-}
+
+
+
+
+
+
+
+
+
 
 
 

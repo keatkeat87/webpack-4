@@ -58,7 +58,7 @@ module.exports = {
     },
     // vendor
     optimization: {
-        runtimeChunk: true,
+        //runtimeChunk: true,
         splitChunks: {
             chunks(chunk) {
                 return chunk.name !== 'polyfills' && chunk.name !== 'landingPage';
@@ -100,7 +100,12 @@ module.exports = {
                     options: {
                         sourceMap: true
                     }
-                }]
+                },{
+                    loader: 'resolve-url-loader',
+                    options: {
+                        absolute: true
+                    }
+                  }]
             },
             {
                 test: /\.scss$/,
@@ -111,7 +116,12 @@ module.exports = {
                     options: {
                         sourceMap: true
                     }
-                }, {
+                },{
+                    loader: 'resolve-url-loader',
+                    options: {
+                        sourceMap: true
+                    }
+                  }, {
                     loader: 'sass-loader',
                     options: {
                         sourceMap: true

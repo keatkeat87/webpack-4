@@ -30,7 +30,125 @@ import { setupLiveChat } from '../modules/zopimLiveChat';
 import { appConfig } from '../appConfig';
 import { setupGoogleMap } from '../modules/googleMap';
 import { setupFacebookPage } from '../modules/facebookPage';
-import { scrollToTop, slideToggle } from '../modules/dom';
+import { scrollToTop } from '../modules/dom';
+
+function animation(duration : number = 300, task : (progress : number, last : boolean) => void ) { 
+    let method = (timestamp: number) => {
+        let progress = timestamp / duration;                
+        if (progress >= 1) {
+            task(progress, true);
+        }
+        else { 
+            task(progress, false);
+            requestAnimationFrame(method);
+        }        
+    }
+    requestAnimationFrame(method);
+}
+
+animation(300, (progress) => {
+     console.log('here', progress);
+    // document.getElementById('').style.height = percent * 300 + 'px';
+});
+
+document.getElementById('slideDown').addEventListener('click',()=>{
+    let box = document.getElementById('box');
+    box.style.display = 'block';
+    const height = box.clientHeight;
+    box.style.height = '0';
+    console.log(height)
+    
+    let start : number|null = null;
+    const animation = (timeStamp : number)=>{
+        if(!start) start = timeStamp;
+        let runtime = timeStamp - start;
+        const duration = 300;
+        let progress = runtime / duration; 
+        if(progress >= 1){
+            box.style.height = height + 'px';
+        }
+        else{
+            box.style.height = (height * progress) + 'px';
+            window.requestAnimationFrame(animation);
+        }
+    }
+    window.requestAnimationFrame(animation);
+});
+document.getElementById('slideUp').addEventListener('click',()=>{
+    let box = document.getElementById('box');
+    const height = box.clientHeight;
+    
+    let start : number|null = null;
+    const animation = (timeStamp : number)=>{
+        if(!start) start = timeStamp;
+        let runtime = timeStamp - start;
+        const duration = 300;
+        let progress = runtime / duration; 
+        if(progress >= 1){
+            box.style.removeProperty('height');
+            box.style.removeProperty('display');
+        }
+        else{
+            box.style.height = (height * ( 1- progress )) + 'px'; 
+            window.requestAnimationFrame(animation);
+        }
+    }
+    window.requestAnimationFrame(animation);
+});
+document.getElementById('slideToggle').addEventListener('click',()=>{
+    let box = document.getElementById('box');
+    let isOpen = window.getComputedStyle(box).display == 'block';
+    if(isOpen){
+        const height = box.clientHeight;
+        let start : number|null = null;
+        const animation = (timeStamp : number)=>{
+            if(!start) start = timeStamp;
+            let runtime = timeStamp - start;
+            const duration = 300;
+            let progress = runtime / duration; 
+            if(progress >= 1){
+                box.style.removeProperty('height');
+                box.style.removeProperty('display');
+            }
+            else{
+                box.style.height = (height * ( 1- progress )) + 'px'; 
+                window.requestAnimationFrame(animation);
+            }
+        }
+        window.requestAnimationFrame(animation);
+    }
+    else{
+        box.style.display = 'block';
+        const height = box.clientHeight;
+        box.style.height = '0';
+        console.log(height)
+        
+        let start : number|null = null;
+        const animation = (timeStamp : number)=>{
+            if(!start) start = timeStamp;
+            let runtime = timeStamp - start;
+            const duration = 300;
+            let progress = runtime / duration; 
+            if(progress >= 1){
+                box.style.height = height + 'px';
+            }
+            else{
+                box.style.height = (height * progress) + 'px';
+                window.requestAnimationFrame(animation);
+            }
+        }
+        window.requestAnimationFrame(animation);
+    }
+   
+});
+
+
+// setTimeout(()=>{
+//     slideToggle(document.getElementById('slideToggle'));
+// },1000)
+// setTimeout(()=>{
+//     slideToggle(document.getElementById('slideToggle'));
+// },4000)
 
 // setupGA(appConfig.googleAnalyticsId);
 

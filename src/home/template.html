@@ -19,14 +19,24 @@
 </head>
 
 <body>
-    <form id="enquiryForm" action="/submit">
+
+        <button id="slideDown">slide down</button>
+        <button id="slideUp">slide up</button>
+        <button id="slideToggle">slide toggle</button>
+    
+        <div id="box">
+            <div style="height:300px"></div>
+        </div>
+    <!-- <form id="enquiryForm"
+        action="/submit">
 
         <input type="submit" value="Submit">
 
         <input type="submit" value="Go Elsewhere" formaction="/elsewhere">
 
     </form>
-      
+
+
 
         <div style="position:fixed">asd</div>
         <div id="scrollToTop"
@@ -57,7 +67,6 @@
                 style="width : 500px;height : 500px; ">da</div>
             <div id="googleMap"
                 style="width:300px; height:300px;"></div>
-            <!-- Go to www.addthis.com/dashboard to customize your tools -->
             <div class="addthis_inline_share_toolbox_3xz5"></div>
 
             <form id="enquiryForm"
@@ -76,8 +85,8 @@
             <span>Successfull!</span>
             <span>Fail!</span>
         </button>
-            </form>
-            <a href="<%= require('../images/big.jpg') %>" data-fancybox>
+            </form> -->
+            <a href="<%= require('../images/big.jpg') %>" data-fancybox style="display: none">
         <img src="<%= require('../images/big.jpg') %>" />
     </a>
             <!--     
@@ -198,7 +207,7 @@
             if(htmlWebpackPlugin.files.chunks[chunk].entry.indexOf('runtime~') !== -1) {         
                  %>
             <script>
-        <%= compilation.assets[htmlWebpackPlugin.files.chunks[chunk].entry.split('/').pop()].source() %>
+                <%= compilation.assets[htmlWebpackPlugin.files.chunks[chunk].entry.split('/').pop()].source() %>
             </script>
             <% 
             } 
