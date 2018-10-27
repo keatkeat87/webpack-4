@@ -32,114 +32,88 @@ import { setupGoogleMap } from '../modules/googleMap';
 import { setupFacebookPage } from '../modules/facebookPage';
 import { scrollToTop } from '../modules/dom';
 
-function animation(duration : number = 300, task : (progress : number, last : boolean) => void ) { 
-    let method = (timestamp: number) => {
-        let progress = timestamp / duration;                
+// function animation(duration : number = 300, task : (progress : number, last : boolean) => void ) { 
+//     let method = (timestamp: number) => {
+//         let progress = timestamp / duration;                
+//         if (progress >= 1) {
+//             task(progress, true);
+//         }
+//         else { 
+//             task(progress, false);
+//             requestAnimationFrame(method);
+//         }        
+//     }
+//     requestAnimationFrame(method);
+// }
+
+// animation(300, (progress) => {
+//      console.log('here', progress);
+//     // document.getElementById('').style.height = percent * 300 + 'px';
+// });
+
+
+function animation(duration: number, action: (progress: number, isLast: boolean) => void) {
+    let start: number | null = null;
+    const animation = (timeStamp: number) => {
+        if (!start) start = timeStamp;
+        let runtime = timeStamp - start;
+        let progress = runtime / duration;
         if (progress >= 1) {
-            task(progress, true);
+            action(progress, true);
         }
-        else { 
-            task(progress, false);
-            requestAnimationFrame(method);
-        }        
+        else {
+            action(progress, false);
+            window.requestAnimationFrame(animation);
+        }
     }
-    requestAnimationFrame(method);
+    window.requestAnimationFrame(animation);
 }
 
-animation(300, (progress) => {
-     console.log('here', progress);
-    // document.getElementById('').style.height = percent * 300 + 'px';
-});
+function slideDown(element: HTMLElement) {
+    element.style.display = 'block';
+    const height = element.clientHeight;
+    element.style.height = '0';
+    animation(300, (progress, isLast) => {
+        if (isLast) {
+            element.style.height = height + 'px';
+        }
+        else {
+            element.style.height = (height * progress) + 'px';
+        }
+    });
+}
 
-document.getElementById('slideDown').addEventListener('click',()=>{
-    let box = document.getElementById('box');
-    box.style.display = 'block';
-    const height = box.clientHeight;
-    box.style.height = '0';
-    console.log(height)
-    
-    let start : number|null = null;
-    const animation = (timeStamp : number)=>{
-        if(!start) start = timeStamp;
-        let runtime = timeStamp - start;
-        const duration = 300;
-        let progress = runtime / duration; 
-        if(progress >= 1){
-            box.style.height = height + 'px';
+function slideUp(element: HTMLElement) {
+    const height = element.clientHeight;
+    animation(300, (progress, isLast) => {
+        if (isLast) {
+            element.style.removeProperty('height');
+            element.style.removeProperty('display');
         }
-        else{
-            box.style.height = (height * progress) + 'px';
-            window.requestAnimationFrame(animation);
+        else {
+            element.style.height = (height * (1 - progress)) + 'px';
         }
+    });
+}
+
+function slideToggle(element: HTMLElement){
+    let isOpen = window.getComputedStyle(element).display == 'block';
+    if (isOpen) {
+        slideUp(element);
     }
-    window.requestAnimationFrame(animation);
+    else {
+        slideDown(element);
+    }
+}
+
+document.getElementById('slideDown').addEventListener('click', () => {
+    slideDown(document.getElementById('box'))
 });
-document.getElementById('slideUp').addEventListener('click',()=>{
-    let box = document.getElementById('box');
-    const height = box.clientHeight;
-    
-    let start : number|null = null;
-    const animation = (timeStamp : number)=>{
-        if(!start) start = timeStamp;
-        let runtime = timeStamp - start;
-        const duration = 300;
-        let progress = runtime / duration; 
-        if(progress >= 1){
-            box.style.removeProperty('height');
-            box.style.removeProperty('display');
-        }
-        else{
-            box.style.height = (height * ( 1- progress )) + 'px'; 
-            window.requestAnimationFrame(animation);
-        }
-    }
-    window.requestAnimationFrame(animation);
+document.getElementById('slideUp').addEventListener('click', () => {
+    slideUp(document.getElementById('box'))    
 });
-document.getElementById('slideToggle').addEventListener('click',()=>{
-    let box = document.getElementById('box');
-    let isOpen = window.getComputedStyle(box).display == 'block';
-    if(isOpen){
-        const height = box.clientHeight;
-        let start : number|null = null;
-        const animation = (timeStamp : number)=>{
-            if(!start) start = timeStamp;
-            let runtime = timeStamp - start;
-            const duration = 300;
-            let progress = runtime / duration; 
-            if(progress >= 1){
-                box.style.removeProperty('height');
-                box.style.removeProperty('display');
-            }
-            else{
-                box.style.height = (height * ( 1- progress )) + 'px'; 
-                window.requestAnimationFrame(animation);
-            }
-        }
-        window.requestAnimationFrame(animation);
-    }
-    else{
-        box.style.display = 'block';
-        const height = box.clientHeight;
-        box.style.height = '0';
-        console.log(height)
-        
-        let start : number|null = null;
-        const animation = (timeStamp : number)=>{
-            if(!start) start = timeStamp;
-            let runtime = timeStamp - start;
-            const duration = 300;
-            let progress = runtime / duration; 
-            if(progress >= 1){
-                box.style.height = height + 'px';
-            }
-            else{
-                box.style.height = (height * progress) + 'px';
-                window.requestAnimationFrame(animation);
-            }
-        }
-        window.requestAnimationFrame(animation);
-    }
-   
+document.getElementById('slideToggle').addEventListener('click', () => {
+    slideToggle(document.getElementById('box'));
 });
 
 
